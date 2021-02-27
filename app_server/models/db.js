@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 // const dbURI = 'mongodb://localhost/Loc8r'; //local DB connection
 const dbURI = "mongodb+srv://rajith:rajith0627@cluster0.qnjpb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
-mongoose.connect(dbURI, { useNewUrlParser: true });
+// mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology : true });
+mongoose.connect(dbURI,{dbName: 'myfoodDB' });
 
 mongoose.connection.on('connected', () => {
     console.log(`Mongoose connected to ${dbURI}`);
@@ -42,4 +43,4 @@ process.on('SIGTERM', () => {
     });
 });
 
-// require('./locations');
+require('./food');
