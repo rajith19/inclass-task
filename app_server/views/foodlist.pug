@@ -5,4 +5,5 @@ block content
   p Here is a list of my favourite foods
   ul
     each food in foods
-      li= food.name + " - " + food.type
+      a(href=`/foods/${food._id}`)
+        li= food.name + " - " + food.type
