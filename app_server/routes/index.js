@@ -6,7 +6,9 @@ const ctrlFood = require('../controllers/food')
 router.get('/', ctrlFood.homelist);
 router.get('/foods/:foodid', ctrlFood.foodInfo);
 
-// router.get('/list', ctrlFood.foodlist);
-// router.get('/favourite', ctrlFood.myfavouriteFood);
+router
+    .route('/new')
+    .get(ctrlFood.addNewFood)
+    .post(ctrlFood.doAddNewFood);
 
 module.exports = router;

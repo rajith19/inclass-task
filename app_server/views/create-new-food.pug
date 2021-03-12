@@ -1,0 +1,17 @@
+extends layout
+
+block content
+	.row 
+		.col-12
+			form(action="", method="post", role="form")
+				.form-group.row
+					label.col-10.col-sm-2.col-form-label(for="name") Name
+					.col-12.col-sm-10
+						input#name.form-control(name="name")
+				.form-group.row.mb-5
+					label.col-10.col-sm-2.col-form-label(for="type") Type
+					.col-12.col-sm-10
+						input#name.form-control(name="type")
+				.form-group.row
+					button.btn.btn-primary.float-right Submit
+	a(href='/') Back

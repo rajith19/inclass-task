@@ -47,8 +47,43 @@ const foodInfo = function (req, res) {
     );
 };
 
+
+const _renderCreatePage = function (req, res) {
+    res.render('create-new-food', {
+        title: "Create New Food"
+    })
+}
+
+const addNewFood = function (req, res) {
+    _renderCreatePage(req, res);
+}
+
+const doAddNewFood = function (req, res) {
+    const path = '/api/foods';
+    const postdata = {
+        name: req.body.name,
+        type: req.body.type
+    };
+    const requestOptions = {
+        url: apiOptions.server + path,
+        method: 'POST',
+        json: postdata
+    };
+    request(
+        requestOptions,
+        (err, response, body) => {
+            if (response.statusCode === 201) {
+                res.redirect('/');
+            }
+        }
+    );
+};
+
+
 module.exports = {
     foodInfo,
-    homelist
+    homelist,
+    doAddNewFood,
+    addNewFood
 
 };

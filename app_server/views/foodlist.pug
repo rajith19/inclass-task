@@ -5,5 +5,7 @@ block content
   p Here is a list of my favourite foods
   ul
     each food in foods
-      a(href=`/foods/${food._id}`)
-        li= food.name + " - " + food.type
+      li
+        a(href=`/foods/${food._id}`)= food.name + " - " + food.type
+  p
+    a(href=`/new`) Create new food
